@@ -1,0 +1,16 @@
+services:
+  repo2video:
+    build: .
+    container_name: repo2video
+    restart: unless-stopped
+    # host: asi el bot llega a Ollama en 127.0.0.1:11434 (el contenedor "ollama" ya esta publicado ahi)
+    network_mode: host
+    mem_limit: 2g
+    shm_size: 512m
+    environment:
+      TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+      ALLOWED_USER_IDS: ${ALLOWED_USER_IDS}
+      OLLAMA_URL: http://127.0.0.1:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b}
+      GITHUB_TOKEN: ${GITHUB_TOKEN:-}
+      SEND_JSON: ${SEND_JSON:-0}

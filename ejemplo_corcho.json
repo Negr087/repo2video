@@ -1,0 +1,19 @@
+{
+  "titulo": "Corcho",
+  "escenas": [
+    {"tipo": "titulo", "titulo": "Corcho", "subtitulo": "Notas por voz y texto, desde Telegram",
+     "narracion": "Corcho guarda tus notas: le mandás un texto o un audio a un bot de Telegram y aparecen en una app web."},
+    {"tipo": "diagrama", "titulo": "Cómo está armado",
+     "nodos": ["Google Login", "Telegram Bot", "Cloudflare", "Corcho", "Transcripción", "SQLite"],
+     "conexiones": [["Google Login", "Corcho"], ["Telegram Bot", "Corcho"], ["Cloudflare", "Corcho"], ["Corcho", "Transcripción"], ["Corcho", "SQLite"]],
+     "narracion": "Una app central recibe las notas del bot, transcribe los audios en un contenedor aparte y guarda todo en SQLite."},
+    {"tipo": "flujo", "titulo": "Qué pasa con un audio",
+     "pasos": ["Mandás un audio al bot", "Telegram lo recibe", "Corcho lo manda a transcribir", "El texto se guarda en SQLite", "La nota aparece en la app web"],
+     "narracion": "Del audio a la nota en cinco pasos, sin que tengas que escribir nada."},
+    {"tipo": "stack", "titulo": "Tecnologías",
+     "items": ["Next.js", "Node.js", "SQLite", "Docker", "Telegram Bot", "Cloudflare Tunnel", "Google Login"],
+     "narracion": "Todo corre en Docker, en un nodo propio, publicado con un túnel de Cloudflare."},
+    {"tipo": "cierre", "titulo": "Tus ideas, siempre a mano", "texto": "Hablás, Corcho anota.",
+     "narracion": "Hablás, Corcho anota."}
+  ]
+}
